@@ -1,2 +1,22 @@
-<h2>User info</h2>
-<%= image_tag 'no_image.jpg' %>
+<div class="containar">
+  <div class="row">
+    <div class="col-md-3">
+      <h2>User info</h2>
+      <%= image_tag 'no_image.jpg' %>
+      <table>
+        <tbody>
+          <tr>
+            <th>name</th>
+            <th><%= @current_user_name %></th>
+          </tr>
+          <tr>
+            <th>introduction</th>
+            <% if @user_introduction.present? %>
+            <th><%= @user_introduction %></th>
+            <% end %>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

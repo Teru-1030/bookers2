@@ -13,6 +13,8 @@ class BooksController < ApplicationController
   def index
      @book = Book.new
      @books = Book.all
+     @current_user_name = current_user.name
+     @user_introduction = current_user.introduction
   end
 
   def show
@@ -26,5 +28,6 @@ class BooksController < ApplicationController
   def post_image_params
     params.require(:book).permit(:title, :body)
   end
-
+  
 end
+

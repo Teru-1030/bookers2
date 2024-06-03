@@ -21,6 +21,7 @@
         </button>
         <% end %>
 
+
          <h2>New Book</h2>
 
          <%= form_with model: Book.new do |f| %>
@@ -30,17 +31,14 @@
            <h4>Opinion</h4>
            <%= f.text_area :body %>
 
-           <%= link_to(edit_user_path(@user)) do %>
-           <button type="button" class="btn btn-success btn-lg">Create Book</button>
-           <% end %>
-           
+           <%= link_to "Create Book", (user_path(@user)), class: "btn btn-success btn-lg" %>
+
+
           <% end %>
-     </div>
-     
+
      <div class="col-md-8 offset-md-1">
-       
-       <h2>Books</h2>
-       
+
+      <h2>Bookes</h2>
        <table>
          <thead>
            <tr>
@@ -51,11 +49,14 @@
          <%= @books.each do |book| %>
          <tbody>
            <tr>
-             <td></td>
+             <td><%= image_tag book.user.get_profile_image(100,100) %>></td>
+             <td><%= book.title %></td>
+             <td><%= book.body %></td>
            </tr>
+         <% end %>
          </tbody>
        </table>
      </div>
-     
+
   </div>
 </div>

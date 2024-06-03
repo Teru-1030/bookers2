@@ -16,8 +16,12 @@ class BooksController < ApplicationController
      @current_user_name =  current_user.name
      @user = current_user.id
   end
-  
+
   def show
+     @book = Book.new
+     @books = Book.all
+     @current_user_name =  current_user.name
+     @user = current_user.id
   end
 
   def edit
@@ -25,7 +29,7 @@ class BooksController < ApplicationController
 
   private
 
-  def post_image_params
+  def book_params
     params.require(:book).permit(:title, :body)
   end
 

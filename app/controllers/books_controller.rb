@@ -13,15 +13,16 @@ class BooksController < ApplicationController
   def index
      @book = Book.new
      @books = Book.all
-     @current_user_name =  current_user.name
-     @user = current_user.id
+     @current_user =  current_user
+     @user =  @book.user
+
   end
 
   def show
      @book = Book.new
      @books = Book.all
-     @current_user_name =  current_user.name
-     @user = current_user.id
+     @current_user =  current_user
+     @user =  @book.user
   end
 
   def edit

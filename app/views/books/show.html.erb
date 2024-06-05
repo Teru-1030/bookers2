@@ -20,8 +20,8 @@
         <i class="fa-solid fa-user-gear"></i>
 
         <% end %>
-        
-        
+
+
          <h2>New Book</h2>
 
          <%= form_with model: Book.new do |f| %>
@@ -40,14 +40,14 @@
       <h2>Book detail</h2>
        <table>
           <tbody>
-         <% @books.each do |book| %>
 
            <tr>
-             <td><%= image_tag book.user.get_profile_image(100,100) %></td>
-             <td><%= book.title %></td>
-             <td><%= book.body %></td>
+             <td><%= image_tag @book_params.user.get_profile_image(100,100) %></td>
+             <td><%= @book_params.title %></td>
+             <td><%= @book_params.body %></td>
+             <td><%=link_to "Edit", edit_book_path(@book_params) %></td>
+             <td><%= link_to "Destroy", book_path(@book_params), method: :delete %></td>
            </tr>
-         <% end %>
          </tbody>
        </table>
      </div>

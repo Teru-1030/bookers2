@@ -10,7 +10,6 @@ class UsersController < ApplicationController
 
   def index
     @users = User.all
-
   end
   
   def update
@@ -18,5 +17,11 @@ class UsersController < ApplicationController
     @user.update(user_params)
     redirect_to @user
   end  
+  
+  private
+
+  def user_params
+    params.require(:user).permit(:name, :profile_image , :introduction)
+  end
 
 end

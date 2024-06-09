@@ -1,5 +1,4 @@
-
-    <%= render 'list' %>
+ <%= render 'list' %>
    </div>
     <div class="col-md-8 offset-md-1">
 
@@ -12,7 +11,11 @@
              <td><%= @book_params.title %></td>
              <td><%= @book_params.body %></td>
              <td><%=link_to "Edit", edit_book_path(@book_params) %></td>
-             <td><%= link_to "Destroy", book_path(@book_params), method: :delete %></td>
+             <td>
+               <% if @book_params.user == current_user %>
+                 <%= link_to "Destroy", book_path(@book_params), method: :delete %>
+               <% end %>
+              </td>
            </tr>
          </tbody>
        </table>

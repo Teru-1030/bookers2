@@ -1,4 +1,6 @@
 class BooksController < ApplicationController
+  before_action :book_params, only: [:create, :update]
+
   def new
     @book = Book.new
   end
@@ -10,16 +12,16 @@ class BooksController < ApplicationController
     flash[:notice] = "You have created book successfully."
     redirect_to book_path(@book.id)
    else
+     @books = Book.all
      render :index
    end
-　end
+  end
 
   def index
      @book = Book.new
      @books = Book.all
   end
 
-　
 
   def show
      @book = Book.new
@@ -52,5 +54,4 @@ class BooksController < ApplicationController
   def book_params
     params.require(:book).permit(:title, :body)
   end
-  end
-end
+ end

@@ -1,4 +1,8 @@
- <%= render 'list' %>
+<div>
+ <%= flash[:notice] %>
+</div>
+
+    <%= render 'list' %>
    </div>
     <div class="col-md-8 offset-md-1">
 
@@ -10,7 +14,11 @@
              <td><%= image_tag @book_params.user.get_profile_image(100,100) %></td>
              <td><%= @book_params.title %></td>
              <td><%= @book_params.body %></td>
-             <td><%=link_to "Edit", edit_book_path(@book_params) %></td>
+             <td>
+               <% if @book_params.user == current_user %>
+                 <%=link_to "Edit", edit_book_path(@book_params) %>
+               <% end %>
+             </td>
              <td>
                <% if @book_params.user == current_user %>
                  <%= link_to "Destroy", book_path(@book_params), method: :delete %>

@@ -12,10 +12,10 @@
 
            <tr>
              <td>
-               <%= link_to user_path(@user) do %>
+               <%= link_to user_path(@book_params) do %>
                  <%= image_tag @book_params.user.get_profile_image(100,100) %>
                  <div>
-                 <%= current_user.name %>
+                 <%= @book_params.user.name %>
                  </div>
                <% end %>
              </td>

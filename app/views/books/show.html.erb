@@ -11,8 +11,19 @@
           <tbody>
 
            <tr>
-             <td><%= image_tag @book_params.user.get_profile_image(100,100) %></td>
-             <td><%= @book_params.title %></td>
+             <td>
+               <%= link_to user_path(@user) do %>
+                 <%= image_tag @book_params.user.get_profile_image(100,100) %>
+                 <div>
+                 <%= current_user.name %>
+                 </div>
+               <% end %>
+             </td>
+             <td>
+               <%= link_to book_path(@book_params.id) do %>
+                 <%= @book_params.title %>
+               <% end %>
+             </td>
              <td><%= @book_params.body %></td>
              <td>
                <% if @book_params.user == current_user %>
